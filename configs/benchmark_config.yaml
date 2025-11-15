@@ -1,0 +1,54 @@
+# Benchmark Configuration
+dataset:
+  image_size: 4           # Image dimension (4x4, 8x8, etc.)
+  classes: [0, 1]         # Binary classification (0 vs 1)
+  train_samples: null     # null = use all available
+  test_samples: null      # null = use all available
+  normalize: true
+  seed: 42
+
+training:
+  epochs: 20
+  batch_size: 32
+  learning_rate: 0.001
+  optimizer: adam
+  early_stopping_patience: null  # null = disabled
+  
+models:
+  # Which models to benchmark
+  enabled:
+    - qfcn
+    - classical
+    - cong_qcnn
+  
+  # Model-specific configs
+  qfcn:
+    n_qubits_start: 4
+    n_qubits_l2: 2
+  
+  cong_qcnn:
+    n_qubits: 8
+  
+  classical:
+    auto_select: true  # Auto-select based on image_size
+
+evaluation:
+  metrics:
+    - accuracy
+    - loss
+    - training_time
+    - inference_time
+    - convergence_epoch
+    - num_parameters
+  
+  visualizations:
+    - training_curves
+    - confusion_matrices
+    - prediction_samples
+
+output:
+  base_dir: ./results
+  save_checkpoints: true
+  save_history: true
+  save_plots: true
+  verbose: true
