@@ -131,14 +131,14 @@ class QFCN(nn.Module):
         # Layer 1: [batch, 16] -> [batch, 2]
         x = self.q_layer_1(x)
         
-        # Layer 2: [batch, 2] -> [batch, 1]
+        # Layer 2: [batch, 2] -> [batch]
         x = self.q_layer_2(x)
-        
-        # Ensure correct shape for Linear layer
+
+        # FIX: Ensure shape is [batch, 1] for linear layer
         if x.dim() == 1:
             x = x.unsqueeze(1)  # [batch] -> [batch, 1]
         
-        # Classical head: [batch, 1] -> [batch, num_classes]
+        # Classical head works now!
         logits = self.classical_head(x)
         
         return logits
