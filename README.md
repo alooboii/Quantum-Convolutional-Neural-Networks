@@ -1,4 +1,4 @@
-# 🚀 Quantum CNN MNIST Comparison
+# Quantum CNN MNIST Comparison
 
 A comprehensive benchmarking framework comparing Quantum Convolutional Neural Network (QCNN) architectures against classical baselines on MNIST digit classification.
 
@@ -9,7 +9,7 @@ A comprehensive benchmarking framework comparing Quantum Convolutional Neural Ne
 
 ---
 
-## 📋 Overview
+## Overview
 
 This repository implements and benchmarks **three distinct QCNN approaches** for image classification:
 
@@ -21,15 +21,15 @@ This repository implements and benchmarks **three distinct QCNN approaches** for
 
 ### Why This Matters
 
-- 🔬 **Fair Comparison**: Same dataset, hyperparameters, and evaluation metrics
-- 📊 **Comprehensive Metrics**: Accuracy, loss, training time, parameter efficiency
-- 🎯 **Reproducible**: Fixed seeds, deterministic training
-- 🖥️ **Kaggle-Ready**: Auto-detects environment, optimized for notebooks
-- 📈 **Production-Quality**: Modular, documented, tested
+- **Fair comparison**: Same dataset, hyperparameters, and evaluation metrics
+- **Comprehensive metrics**: Accuracy, loss, training time, parameter efficiency
+- **Reproducible**: Fixed seeds, deterministic training
+- **Kaggle-ready**: Auto-detects environment, optimized for notebooks
+- **Production-quality**: Modular, documented, tested
 
 ---
 
-## 🎯 Key Results Preview
+## Key Results Preview
 
 Expected results on **4×4 Binary MNIST (0 vs 1)**:
 
@@ -39,11 +39,11 @@ Expected results on **4×4 Binary MNIST (0 vs 1)**:
 | Cong QCNN | ~93% | 63 | ~300s | Good |
 | Classical CNN | ~96% | 170 | ~45s | Fastest (but most params) |
 
-**Key Finding**: QFCN achieves competitive accuracy with **12× fewer parameters** than classical CNN! 🎉
+**Key finding**: QFCN achieves competitive accuracy with **12× fewer parameters** than the classical CNN.
 
 ---
 
-## 🗂️ Repository Structure
+## Repository Structure
 
 ```
 quantum-cnn-mnist-comparison/
@@ -63,9 +63,9 @@ quantum-cnn-mnist-comparison/
 ├── models/
 │   ├── __init__.py                  # Model registry
 │   ├── base_model.py                # Abstract base class
-│   ├── qfcn.py                      # ⭐ QFCN (14 params)
-│   ├── cong_qcnn.py                 # ⭐ Cong QCNN (63 params)
-│   └── classical_cnn.py             # ⭐ Classical baseline
+│   ├── qfcn.py                      # QFCN (14 params)
+│   ├── cong_qcnn.py                 # Cong QCNN (63 params)
+│   └── classical_cnn.py             # Classical baseline
 │
 ├── training/
 │   ├── __init__.py
@@ -74,7 +74,7 @@ quantum-cnn-mnist-comparison/
 │   └── utils.py                     # Helper functions
 │
 ├── experiments/
-│   ├── benchmark_all.py             # 🔥 Main benchmark script
+│   ├── benchmark_all.py             # Main benchmark script
 │   └── train_single.py              # Train individual models
 │
 └── results/                         # Generated (git-ignored)
@@ -85,7 +85,7 @@ quantum-cnn-mnist-comparison/
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Installation
 
@@ -101,7 +101,7 @@ pip install -r requirements.txt
 pip install -e .
 ```
 
-### 2. Run Benchmark (One Command!)
+### 2. Run Benchmark (One Command)
 
 ```bash
 # Compare all models on 4×4 binary MNIST
@@ -133,7 +133,7 @@ results/
 
 ---
 
-## 📚 Detailed Usage
+## Detailed Usage
 
 ### Train Single Model
 
@@ -239,7 +239,7 @@ comparator.save_comparison_report('./results')
 
 ---
 
-## 🧠 Model Architectures
+## Model Architectures
 
 ### 1. QFCN (Quantum Fourier Convolutional Network)
 
@@ -261,10 +261,10 @@ comparator.save_comparison_report('./results')
 - Classical: 4
 
 **Key Features**:
-- ✅ Most parameter-efficient
-- ✅ Exponential speedup claim: O(n²) → O(log n)
-- ✅ Spectral filtering in Fourier domain
-- ✅ Unique pooling via controlled rotations
+- Most parameter-efficient
+- Exponential speedup claim: O(n²) → O(log n)
+- Spectral filtering in the Fourier domain
+- Unique pooling via controlled rotations
 
 **Paper**: [arXiv:2106.10421](https://arxiv.org/abs/2106.10421)
 
@@ -292,10 +292,10 @@ comparator.save_comparison_report('./results')
 - Pool3: 3 params
 
 **Key Features**:
-- ✅ Based on MERA tensor network
-- ✅ Parametric 2-qubit unitaries N(α,β,γ)
-- ✅ "Discard qubit" pooling strategy
-- ✅ Circular coupling in convolutions
+- Based on MERA tensor network
+- Parametric 2-qubit unitaries N(α,β,γ)
+- "Discard qubit" pooling strategy
+- Circular coupling in convolutions
 
 **Paper**: [Nature Physics 2019](https://doi.org/10.1038/s41567-019-0648-8)
 
@@ -317,7 +317,7 @@ Input (4×4) → Conv2D(8) → ReLU
 
 ---
 
-## 📊 Evaluation Metrics
+## Evaluation Metrics
 
 ### Performance Metrics
 - **Accuracy**: Overall and per-class
@@ -337,7 +337,7 @@ Input (4×4) → Conv2D(8) → ReLU
 
 ---
 
-## 🔧 Configuration
+## Configuration
 
 Edit `configs/benchmark_config.yaml`:
 
@@ -367,7 +367,7 @@ output:
 
 ---
 
-## 🖥️ Running on Kaggle
+## Running on Kaggle
 
 ### Option 1: Notebook
 
@@ -392,7 +392,7 @@ output:
 
 ---
 
-## 📈 Expected Results
+## Expected Results
 
 ### Binary Classification (0 vs 1, 4×4 images)
 
@@ -402,7 +402,7 @@ output:
 | **Parameters** | 14 | 63 | 170 |
 | **Train Time** | 150-200s | 250-350s | 40-60s |
 | **Convergence** | 10-15 epochs | 12-18 epochs | 5-8 epochs |
-| **Efficiency** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐ |
+| **Efficiency** | Excellent | Good | Fair |
 
 ### Multi-Class (0-9, 8×8 images)
 
@@ -410,7 +410,7 @@ Expect lower accuracies (~70-85%) and longer training times.
 
 ---
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -439,7 +439,7 @@ pip install -e .
 
 ---
 
-## 📖 References
+## References
 
 ### Papers Implemented
 
@@ -468,7 +468,7 @@ pip install -e .
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions welcome! Please:
 
@@ -520,13 +520,13 @@ python experiments/benchmark_all.py --models my_qcnn classical
 
 ---
 
-## 📝 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
 
-**Last Updated**: November 2024  
-**Version**: 1.0.0  
-**Status**: Production-Ready ✅
+**Last Updated**: November 2024
+**Version**: 1.0.0
+**Status**: Production-ready
